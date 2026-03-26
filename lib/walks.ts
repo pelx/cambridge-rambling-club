@@ -1,23 +1,30 @@
 export type Walk = {
-  id: string;
+  id: number;
   title: string;
-  date: string;
-  distance: number;
-  difficulty: 'Easy' | 'Moderate' | 'Hard';
-  location: string;
+  date: string; // YYYY-MM-DD
+  time: string;
+  level: 'A' | 'B' | 'C';
+  leader: string;
   description: string;
-  image: string;
 };
 
 export const walks: Walk[] = [
   {
-    id: 'grantchester-loop',
-    title: 'Grantchester Loop',
-    date: '2026-05-05',
-    distance: 8,
-    difficulty: 'Easy',
-    location: 'Grantchester',
-    description: 'Walk along the river to a lovely village.',
-    image: '/images/walk1.jpg',
+    id: 1,
+    title: "Cambridge to Grantchester",
+    date: "2026-04-10",
+    time: "10:00",
+    level: "B",
+    leader: "John Smith",
+    description: "A scenic riverside walk with pub stop."
+  },
+  {
+    id: 2,
+    title: "Wandlebury Loop",
+    date: "2026-03-01",
+    time: "09:30",
+    level: "A",
+    leader: "Sarah Brown",
+    description: "Challenging hills with woodland views."
   },
 ];

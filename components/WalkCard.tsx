@@ -1,38 +1,39 @@
-import Link from 'next/link';
-import { Walk } from '@/lib/walks';
+type Props = {
+    walk: {
+        title: string;
+        date: string;
+        time: string;
+        level: string;
+        leader: string;
+        description: string;
+    };
+};
 
-export default function WalkCard({ walk }: { walk: Walk }) {
+export default function WalkCard({ walk }: Props) {
     return (
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-            <img
-                src={walk.image}
-                className="h-40 w-full object-cover"
-            />
+        <div className="border rounded-xl p-5 shadow-sm bg-white">
 
-            <div className="p-4">
-                <p className="text-sm text-gray-500">
-                    {new Date(walk.date).toDateString()}
-                </p>
+            <h3 className="text-lg font-semibold mb-2">
+                {walk.title}
+            </h3>
 
-                <h3 className="font-semibold text-lg">
-                    {walk.title}
-                </h3>
+            <p className="text-sm text-gray-600 mb-2">
+                {walk.date} • {walk.time}
+            </p>
 
-                <p className="text-sm">
-                    {walk.distance} km • {walk.difficulty}
-                </p>
+            <p className="text-sm mb-2">
+                <strong>Level:</strong> {walk.level}
+            </p>
 
-                <p className="text-sm text-gray-600 mt-2">
-                    {walk.description}
-                </p>
+            <p className="text-sm mb-2">
+                <strong>Leader:</strong> {walk.leader}
+            </p>
 
-                <Link
-                    href={`/walks/${ walk.id }`}
-                    className="inline-block mt-3 text-green-700"
-                >
-                    Details →
-                </Link>
-            </div>
+            <p className="text-gray-700 text-sm">
+                {walk.description}
+            </p>
+
         </div>
     );
 }
+
