@@ -10,7 +10,6 @@ export default function WalksPage() {
   return (
     <>
       <Navbar />
-      <Hero />   {/* 👈 THIS is what you're missing */}
 
       {/* Header */}
       <PageHeader
