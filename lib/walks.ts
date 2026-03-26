@@ -6,6 +6,7 @@ export type Walk = {
   level: 'A' | 'B' | 'C';
   leader: string;
   description: string;
+  image: string; 
 };
 
 export const walks: Walk[] = [
@@ -16,7 +17,8 @@ export const walks: Walk[] = [
     time: "10:00",
     level: "B",
     leader: "John Smith",
-    description: "A scenic riverside walk with pub stop."
+    description: "A scenic riverside walk with pub stop.",
+    image: "/images/walk1.jpg",
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ export const walks: Walk[] = [
     time: "09:30",
     level: "A",
     leader: "Sarah Brown",
-    description: "Challenging hills with woodland views."
+    description: "Challenging hills with woodland views.",
+    image: "/images/walk2.jpg",
   },
 ];
