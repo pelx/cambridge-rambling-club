@@ -51,7 +51,7 @@ export default function WalkCard({ walk }: Props) {
                     </h3>
 
                     {/* Date + Time */}
-                    <p className="text-sm text-gray-500 mb-2">
+                    <p className="text-sm text-foreground mb-2">
                         🗓 {formatDate(walk.date)} • {walk.time}
                     </p>
 

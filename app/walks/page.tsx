@@ -57,7 +57,7 @@ export default function WalksPage() {
                         ))}
                     </div>
                 ) : (
-                    <p className="text-gray-500 mt-10 text-center">
+                    <p className="text-foreground mt-10 text-center">
                         No walks found.
                     </p>
                 )}
