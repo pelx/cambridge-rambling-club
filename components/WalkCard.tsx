@@ -33,7 +33,7 @@ export default function WalkCard({ walk }: Props) {
             <div className="border rounded-xl shadow-sm bg-white hover:shadow-md transition cursor-pointer overflow-hidden">
 
                 {/* Image */}
-                <div className="relative w-full h-40">
+                <div className="relative w-full h-48 sm:h-40">
                     <Image
                         src={walk.image}
                         alt={walk.title}
