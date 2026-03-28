@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "CRC Sun A walk 26th April Great Offley",
+        "date": "2026-04-26",
+        "startTime": "09:30",
+        "level": "A",
+        "leader": "Jill Tufnell",
+        "phone": "",
+        "drivingInstructions": "Leave on the slip road signposted Great Offley, go up the hill and at the first crossroads turn left onto High Street/Kings Walden Road. Turn right into Salusbury Lane; soon after a right hand bend, park in a lay-by on the left.",
+        "parking": "Lay-by on the left of Salusbury Lane",
+        "walkStart": "Salusbury Lane, Great Offley",
+        "description": "A scenic walk along the River Cam passing through meadows and historic colleges. The walk takes in a number of woods with bluebells. 9 miles am and 5.5 miles pm.",
+        "image": "/images/walk1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Wednesday A walk starting from Anglesey Abbey",
+        "date": "2026-04-08",
+        "startTime": "10:00",
+        "level": "A",
+        "leader": "Jean Robertson",
+        "phone": "0771 4322484",
+        "drivingInstructions": "",
+        "parking": "The car park of Anglesey Abbey NT, CB25 9EJ. No charge.",
+        "walkStart": "Entrance to the grassed overflow car park",
+        "description": "Morning via Stow Cum Quy, Little Wilbraham River and Bottisham. Afternoon explores local droves.",
+        "image": ""
+    }
+]

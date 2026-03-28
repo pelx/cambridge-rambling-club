@@ -1,0 +1,88 @@
+Project: Cambridge Rambling Club Website
+
+Tech Stack:
+
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS (v4 with CSS variables)
+* Deployed via Git + Vercel
+
+Project Structure:
+
+* app/
+
+  * page.tsx (Home)
+  * walks/
+
+    * page.tsx (Walks listing)
+    * [id]/page.tsx (Walk detail)
+  * newsletters/
+
+    * page.tsx (Newsletter archive)
+* components/
+
+  * Navbar.tsx (responsive, mobile menu)
+  * WalkCard.tsx
+  * NewsletterCard.tsx
+  * CTASection.tsx
+  * PageHeader.tsx
+* data/
+
+  * walks.json
+  * newsletters.json
+* lib/
+
+  * walks.ts
+  * newsletters.ts
+* public/
+
+  * images/ (walk images)
+  * newsletters/ (PDF files)
+
+Data Models:
+
+Walk:
+
+* id (number)
+* title (string)
+* date (ISO string: YYYY-MM-DD)
+* time (string)
+* level ("A" | "B" | "C")
+* leader (string)
+* description (string)
+* image (string path)
+
+Newsletter:
+
+* id (number)
+* season ("Winter" | "Spring" | "Summer" | "Autumn")
+* year (number)
+* file (PDF path)
+
+Features Implemented:
+
+* Responsive navbar (desktop + mobile)
+* Walks listing with cards
+* Dynamic walk detail pages (/walks/[id])
+* Newsletter archive page
+* JSON-based data (no CMS yet)
+* PDF newsletters open in browser
+* Mobile-responsive layout
+
+Known Considerations:
+
+* Using JSON as data source (may migrate to CMS later)
+* Tailwind uses CSS variables (text-foreground system)
+* Next.js dynamic params are async (must use await)
+* Images and PDFs served from /public
+
+Next Planned Improvements:
+
+* Walk filtering (A/B/C, upcoming vs past)
+* Newsletter detail/preview page
+* UI polish (typography, spacing)
+* Highlight latest content
+* Optional CMS integration (e.g. Sanity)
+
+Current Focus:
+[Replace this line with what you need help with]

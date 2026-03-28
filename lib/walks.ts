@@ -1,33 +1,22 @@
+import data from '../data/walks.json';
+
 export type Walk = {
   id: number;
   title: string;
-  date: string; // YYYY-MM-DD
-  time: string;
+  date: string;           // YYYY-MM-DD
+  startTime: string;      // e.g. "09:30"
   level: 'A' | 'B' | 'C';
   leader: string;
+  phone?: string;
+  drivingInstructions?: string;
+  parking?: string;
+  walkStart?: string;
   description: string;
-  image: string; 
+  image?: string;
 };
 
-export const walks: Walk[] = [
-  {
-    id: 1,
-    title: "Cambridge to Grantchester",
-    date: "2026-04-10",
-    time: "10:00",
-    level: "B",
-    leader: "John Smith",
-    description: "A scenic riverside walk with pub stop.",
-    image: "/images/walk1.jpg",
-  },
-  {
-    id: 2,
-    title: "Wandlebury Loop",
-    date: "2026-03-01",
-    time: "09:30",
-    level: "A",
-    leader: "Sarah Brown",
-    description: "Challenging hills with woodland views.",
-    image: "/images/walk2.jpg",
-  },
-];
+export const walks = data as Walk[];
+
+export function getWalkById(id: number): Walk | undefined {
+  return walks.find(w => w.id === id);
+}
