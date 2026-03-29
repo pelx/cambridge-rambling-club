@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
-import Link from 'next/link';
-import { walks, getWalkById } from '../../../lib/walks';
+import { useRouter } from 'next/navigation';
+import { getWalkById } from '../../../lib/walks';
 import { notFound } from 'next/navigation';
+import { use } from 'react';
 
 const levelConfig = {
     A: { label: 'Level A — challenging', className: 'bg-red-50 text-red-800' },
@@ -19,12 +22,9 @@ function initialsOf(name: string) {
     return name.split(' ').map(n => n[ 0 ]).join('').toUpperCase().slice(0, 2);
 }
 
-export function generateStaticParams() {
-    return walks.map(w => ({ id: String(w.id) }));
-}
-
-export default async function WalkDetailPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = await params;
+export default function WalkDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const router = useRouter();
+    const { id } = use(params);
     const walk = getWalkById(Number(id));
     if (!walk) notFound();
 
@@ -32,9 +32,12 @@ export default async function WalkDetailPage({ params }: { params: Promise<{ id:
 
     return (
         <main className="max-w-2xl mx-auto px-6 py-10">
-            <Link href="/walks" className="text-sm text-stone-400 hover:text-stone-600 transition-colors mb-6 inline-block">
-                ← Back to Walks
-            </Link>
+            <button
+                onClick={() => router.back()}
+                className="text-sm text-stone-400 hover:text-stone-600 transition-colors mb-6 inline-block"
+            >
+                ← Back
+            </button>
 
             {/* Image */}
             <div className="relative w-full h-40 overflow-hidden">
@@ -45,7 +48,6 @@ export default async function WalkDetailPage({ params }: { params: Promise<{ id:
                     <img src="/images/walk_placeholder.svg" alt="" className="w-full h-full object-cover" />
                 )}
             </div>
-
 
             {/* Header */}
             <div className="flex items-start justify-between gap-4 mb-6">
@@ -93,11 +95,12 @@ export default async function WalkDetailPage({ params }: { params: Promise<{ id:
                 </div>
                 <div>
                     <p className="text-sm font-medium text-stone-900">{walk.leader}</p>
-                    {walk.phone && (
+                    {walk.phone && walk.phone.trim() !== '' && (
                         <p className="text-sm text-stone-500">{walk.phone} — book by text, add your name</p>
                     )}
                 </div>
             </div>
+
             <hr className="border-stone-200 my-6" />
 
             <div className="bg-stone-50 rounded-xl p-4 text-sm text-stone-600 leading-relaxed">

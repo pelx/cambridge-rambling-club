@@ -38,6 +38,9 @@ export default function Navbar() {
                     <Link href="/holidays" className={linkClass('/holidays')}>
                         Holidays
                     </Link>
+                    <Link href="/calendar" className={linkClass('/calendar')}>
+                        Calendar
+                    </Link>
                     <Link href="/newsletters" className={linkClass('/newsletters')}>
                         Newsletters
                     </Link>
@@ -83,6 +86,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/holidays" className={linkClass('/holidays')}>
                         Holidays
+                    </Link>
+                    <Link href="/calendar" className={linkClass('/calendar')}>
+                        Calendar
                     </Link>
                     <Link
                         href="/newsletters"
