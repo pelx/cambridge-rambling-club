@@ -1,38 +1,23 @@
-<svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
-  <rect width="680" height="300" fill="#E8D5A3"/>
-  <rect x="0" y="180" width="680" height="120" fill="#4A7C3F"/>
-  <rect x="0" y="0" width="680" height="130" fill="#5B9BD5"/>
-  <ellipse cx="340" cy="60" rx="55" ry="45" fill="#F4C430"/>
-  <ellipse cx="80" cy="160" rx="55" ry="80" fill="#2D5A1B"/>
-  <ellipse cx="60" cy="140" rx="35" ry="60" fill="#3D7A2B"/>
-  <ellipse cx="100" cy="145" rx="30" ry="55" fill="#4A9A35"/>
-  <ellipse cx="580" cy="155" rx="50" ry="75" fill="#2D5A1B"/>
-  <ellipse cx="560" cy="138" rx="32" ry="55" fill="#4A9A35"/>
-  <ellipse cx="600" cy="142" rx="28" ry="50" fill="#3D7A2B"/>
-  <ellipse cx="200" cy="168" rx="40" ry="60" fill="#2D5A1B"/>
-  <ellipse cx="185" cy="155" rx="25" ry="45" fill="#4A9A35"/>
-  <ellipse cx="460" cy="165" rx="38" ry="58" fill="#2D5A1B"/>
-  <ellipse cx="478" cy="152" rx="24" ry="42" fill="#3D7A2B"/>
-  <rect x="310" y="210" width="8" height="60" fill="#8B4513"/>
-  <ellipse cx="314" cy="200" rx="22" ry="18" fill="#E8453C"/>
-  <ellipse cx="304" cy="208" rx="16" ry="13" fill="#C73230"/>
-  <ellipse cx="326" cy="205" rx="14" ry="12" fill="#FF6B6B"/>
-  <rect x="380" y="220" width="6" height="50" fill="#8B4513"/>
-  <ellipse cx="383" cy="212" rx="18" ry="15" fill="#9B59B6"/>
-  <ellipse cx="373" cy="218" rx="12" ry="10" fill="#7D3C98"/>
-  <rect x="260" y="225" width="6" height="45" fill="#8B4513"/>
-  <ellipse cx="263" cy="217" rx="16" ry="14" fill="#E8453C"/>
-  <ellipse cx="272" cy="222" rx="12" ry="10" fill="#FF6B6B"/>
-  <path d="M150 240 Q200 220 260 235 Q320 248 380 232 Q440 218 500 238 Q550 252 600 235" fill="none" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
-  <rect x="320" y="248" width="4" height="30" fill="#1A1A1A"/>
-  <rect x="316" y="248" width="12" height="4" fill="#1A1A1A"/>
-  <ellipse cx="322" cy="244" rx="5" ry="5" fill="#F4D03F"/>
-  <ellipse cx="150" cy="100" rx="25" ry="18" fill="#FFFFFF" opacity="0.8"/>
-  <ellipse cx="185" cy="88" rx="35" ry="22" fill="#FFFFFF" opacity="0.7"/>
-  <ellipse cx="510" cy="75" rx="30" ry="20" fill="#FFFFFF" opacity="0.75"/>
-  <ellipse cx="548" cy="65" rx="22" ry="15" fill="#FFFFFF" opacity="0.65"/>
-  <ellipse cx="420" cy="270" rx="8" ry="5" fill="#E8453C" opacity="0.7"/>
-  <ellipse cx="240" cy="275" rx="6" ry="4" fill="#9B59B6" opacity="0.7"/>
-  <ellipse cx="480" cy="265" rx="7" ry="4" fill="#E8453C" opacity="0.6"/>
-  <ellipse cx="180" cy="268" rx="5" ry="3" fill="#F4C430" opacity="0.8"/>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f5f1e8"/>
+
+  <!-- Sun -->
+  <circle cx="400" cy="200" r="60" fill="#f4b400"/>
+
+  <!-- Mountains -->
+  <path d="M0 250 Q150 150 300 250 T600 250 T800 250 V400 H0 Z" fill="#5fa8a4"/>
+  <path d="M0 280 Q200 180 400 280 T800 280 V400 H0 Z" fill="#3b7ea1"/>
+  <path d="M0 310 Q250 220 500 310 T800 310 V400 H0 Z" fill="#7fb069"/>
+
+  <!-- Abstract leaves -->
+  <ellipse cx="100" cy="80" rx="60" ry="20" fill="#e76f51" transform="rotate(-20 100 80)"/>
+  <ellipse cx="700" cy="70" rx="60" ry="20" fill="#f4a261" transform="rotate(20 700 70)"/>
+  <ellipse cx="120" cy="350" rx="80" ry="25" fill="#2a9d8f" transform="rotate(10 120 350)"/>
+  <ellipse cx="680" cy="340" rx="80" ry="25" fill="#264653" transform="rotate(-10 680 340)"/>
+
+  <!-- Small flowers -->
+  <circle cx="200" cy="320" r="10" fill="#e63946"/>
+  <circle cx="230" cy="300" r="8" fill="#f4a261"/>
+  <circle cx="260" cy="330" r="6" fill="#e9c46a"/>
+
 </svg>

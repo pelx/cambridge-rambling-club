@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { walks, getWalkById } from '../../../lib/walks';
 import { notFound } from 'next/navigation';
 
@@ -31,6 +32,9 @@ export default async function WalkDetailPage({ params }: { params: Promise<{ id:
 
     return (
         <main className="max-w-2xl mx-auto px-6 py-10">
+            <Link href="/walks" className="text-sm text-stone-400 hover:text-stone-600 transition-colors mb-6 inline-block">
+                ← Back to Walks
+            </Link>
 
             {/* Image */}
             <div className="relative w-full h-40 overflow-hidden">
