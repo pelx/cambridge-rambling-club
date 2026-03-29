@@ -29,6 +29,9 @@ export default function Navbar() {
                     <Link href="/" className={linkClass('/')}>
                         Home
                     </Link>
+                    <Link href="/club-news" className={linkClass('/club-news')}>
+                        Club News
+                    </Link>
                     <Link href="/walks" className={linkClass('/walks')}>
                         Walks
                     </Link>

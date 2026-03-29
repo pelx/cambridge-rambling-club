@@ -1,3 +1,4 @@
+// import Image from 'next/image';
 import { Newsletter } from '../lib/newsletters';
 
 type Props = {
