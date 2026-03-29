@@ -1,82 +1,57 @@
 import Navbar from '../components/Navbar';
-import PageHeader from '../components/PageHeader';
-import WalkCard from '../components/WalkCard';
+import Hero from '../components/Hero';
 import CTASection from '../components/CTASection';
-import { walks, type Walk } from '../lib/walks';
 
-export default function WalksPage() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // normalize to avoid timezone issues
+const faqs = [
+  {
+    question: "What is the Cambridge Rambling Club?",
+    answer: "The Cambridge Rambling Club organises walks and social events, not only in the Cambridge area, but all over the country and even occasionally in Europe.",
+  },
+  {
+    question: "Is the Club part of the Ramblers Association?",
+    answer: "Only slightly! The Club is separate from the Ramblers Association but is an affiliated member, supporting its work on maintaining and improving rights of way. Many Club members do however belong to both organisations. The Club is also an affiliated member of HF Holidays.",
+  },
+  {
+    question: "What walks does the Club provide?",
+    answer: "The Club generally offers a choice of two or three walks on Sundays, four on Wednesdays and one on summer Thursday evenings. Sunday A walks cover 14–16 miles at a brisk pace. Sunday B walks are 10–12 miles at a moderate pace. Sunday C walks are 4–6 miles at a leisurely pace. Wednesday walks range from 4 to 14 miles depending on grade. Thursday evening walks run from May to August and are 5–6 miles long.",
+  },
+  {
+    question: "How long are the walks?",
+    answer: "Sunday A: 13-16 miles, brisk/moderate pace. Sunday B: 10-12 miles, moderate pace. Sunday C: 4-6 miles, leisurely pace. Wednesday A: 11-14 miles, moderate pace. Wednesday B (all day): 6.5-8 miles. Wednesday B (morning): 5.5-6.5 miles. Wednesday C: up to 4 miles, morning only. Thursday evenings: 5-6 miles.",
+  },
+  {
+    question: "Can non-members attend walks?",
+    answer: "Visitors and non-members are very welcome, but we ask regular attendees to pay the nominal subscription and join the Club. Anyone coming on a Club trip is required to be a member for insurance purposes.",
+  },
+  {
+    question: "Do I have to book to come on a walk?",
+    answer: "You do need to give advance notice of your intention to attend most Club walks. The Club recommends a text, phone call or email to the leader. If you need a lift or can offer one please let the walk leader know in advance.",
+  },
+  {
+    question: "Can I bring my dog on a walk?",
+    answer: "The presence of dogs is only at the discretion of the walk leader. Many walks will be unsuitable if your dog is unable to negotiate stiles and locked gates. Please check with leaders ahead of the walk. Only assistance dogs are allowed on Wednesday C walks.",
+  },
+];
 
-  const getTime = (date: string) => new Date(date).getTime();
-
-  // Upcoming walks (sorted ascending)
-  const upcoming: Walk[] = walks
-    .filter((w) => getTime(w.date) >= today.getTime())
-    .sort((a, b) => getTime(a.date) - getTime(b.date));
-
-  // Past walks (sorted descending)
-  const past: Walk[] = walks
-    .filter((w) => getTime(w.date) < today.getTime())
-    .sort((a, b) => getTime(b.date) - getTime(a.date));
-
+export default function HomePage() {
   return (
     <>
       <Navbar />
-      {/* Header */}
-      <PageHeader
-        title="Walks"
-        subtitle="Explore the countryside with us"
-        image="/images/hero.jpg"
-      />
+      <Hero />
 
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 
-      {/* <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10"> */}
-      <div className="min-h-screen bg-white dark:bg-white max-w-6xl mx-auto px-4 sm:px-6 py-10">
-        
+        <h2 className="text-2xl font-bold text-stone-900 mb-2">About the Club</h2>
+        <p className="text-stone-500 mb-10">Everything you need to know about walking with us.</p>
 
-        {/* Header */}
-        <h1 className="text-3xl font-bold mb-4">
-          Walks
-        </h1>
-
-        <p className="text-foreground/70 mb-8">
-          Explore upcoming and past walks organised by the club.
-        </p>
-
-        {/* Upcoming Walks */}
-        <h2 className="text-xl font-semibold mb-4">
-          Upcoming Walks
-        </h2>
-
-        {upcoming.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
-            {upcoming.map((walk) => (
-              <WalkCard key={walk.id} walk={walk} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-foreground/60 mb-10">
-            No upcoming walks scheduled.
-          </p>
-        )}
-
-        {/* Past Walks */}
-        <h2 className="text-xl font-semibold mb-4">
-          Past Walks
-        </h2>
-
-        {past.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {past.map((walk) => (
-              <WalkCard key={walk.id} walk={walk} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-foreground/60">
-            No past walks available.
-          </p>
-        )}
+        <div className="flex flex-col gap-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="bg-white border border-stone-200 rounded-xl p-6">
+              <h3 className="font-semibold text-stone-900 mb-2">{faq.question}</h3>
+              <p className="text-sm text-stone-600 leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
 
       </div>
 
