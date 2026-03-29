@@ -17,8 +17,8 @@ export default async function NewsPostPage({ params }: { params: Promise<{ id: s
             <Navbar />
             <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
 
-                <Link href="/club-news" className="text-sm text-stone-400 hover:text-stone-600 transition-colors mb-6 inline-block">
-                    ← Back to Club News
+                <Link href="/news" className="text-sm text-stone-400 hover:text-stone-600 transition-colors mb-6 inline-block">
+                    ← Back to News
                 </Link>
 
                 <p className="text-xs text-stone-400 uppercase tracking-wide mb-3">
@@ -30,8 +30,16 @@ export default async function NewsPostPage({ params }: { params: Promise<{ id: s
                 </h1>
 
                 <div className="bg-white border border-stone-200 rounded-xl p-6">
-                    <p className="text-stone-700 leading-relaxed whitespace-pre-line">
-                        {post.content}
+                    <p className="text-stone-700 leading-relaxed">
+                        {post.content.split(/([\w.-]+@[\w.-]+\.\w+)/).map((part, i) =>
+                            /[\w.-]+@[\w.-]+\.\w+/.test(part) ? (
+                                <a key={i} href={`mailto:${ part }`} className="text-green-700 underline hover:text-green-900">
+                                    {part}
+                                </a>
+                            ) : (
+                                part
+                            )
+                        )}
                     </p>
                 </div>
 
@@ -39,3 +47,7 @@ export default async function NewsPostPage({ params }: { params: Promise<{ id: s
         </>
     );
 }
+
+
+
+
