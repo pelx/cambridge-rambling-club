@@ -35,6 +35,9 @@ export default function Navbar() {
                     <Link href="/walks" className={linkClass('/walks')}>
                         Walks
                     </Link>
+                    <Link href="/holidays" className={linkClass('/holidays')}>
+                        Holidays
+                    </Link>
                     <Link href="/newsletters" className={linkClass('/newsletters')}>
                         Newsletters
                     </Link>
@@ -78,7 +81,9 @@ export default function Navbar() {
                     >
                         Walks
                     </Link>
-
+                    <Link href="/holidays" className={linkClass('/holidays')}>
+                        Holidays
+                    </Link>
                     <Link
                         href="/newsletters"
                         className={linkClass('/newsletters')}
