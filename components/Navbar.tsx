@@ -64,7 +64,13 @@ export default function Navbar() {
                     >
                         Home
                     </Link>
-
+                    <Link
+                        href="/news"
+                        className={linkClass('/news')}
+                        onClick={() => setOpen(false)}
+                    >
+                        News
+                    </Link>
                     <Link
                         href="/walks"
                         className={linkClass('/walks')}
