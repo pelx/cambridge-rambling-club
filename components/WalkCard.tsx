@@ -22,12 +22,12 @@ export default function WalkCard({ walk }: { walk: Walk }) {
             <div className="bg-white border border-stone-200 rounded-xl overflow-hidden hover:border-stone-300 transition-colors cursor-pointer">
 
                 {/* Image */}
-                <div className="relative w-full h-40 overflow-hidden">
+                <div className="relative w-full h-52 overflow-hidden">
                     {walk.image ? (
                         <Image src={walk.image} alt={walk.title} fill className="object-cover" />
                     ) : (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src="images/walk_placeholder.svg" alt="" className="w-full h-full object-cover" />
+                        <img src="/images/walk_placeholder.svg" alt="" className="w-full h-full object-cover" />
                     )}
                 </div>
 
@@ -39,11 +39,11 @@ export default function WalkCard({ walk }: { walk: Walk }) {
                     <h3 className="font-serif text-base font-semibold text-stone-900 mb-2 leading-snug">
                         {walk.title}
                     </h3>
-                    <div className="flex flex-col gap-1 text-sm text-stone-800">
+                    <div className="flex flex-col gap-1 text-sm text-stone-500">
                         <span>{formatDate(walk.date)} · {walk.startTime}</span>
                         <span>Led by {walk.leader}</span>
                     </div>
-                    <p className="text-sm text-stone-800 mt-2.5 leading-relaxed line-clamp-2">
+                    <p className="text-sm text-stone-500 mt-2.5 leading-relaxed line-clamp-2">
                         {walk.description}
                     </p>
                 </div>

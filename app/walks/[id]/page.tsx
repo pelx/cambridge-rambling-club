@@ -98,7 +98,12 @@ export default async function WalkDetailPage({ params }: { params: Promise<{ id:
                     )}
                 </div>
             </div>
+            <hr className="border-stone-200 my-6" />
 
+            <div className="bg-stone-50 rounded-xl p-4 text-sm text-stone-600 leading-relaxed">
+                <p>Please text the leader if you want to join the walk. Please add your name to the text.</p>
+                <p className="mt-1">Car sharing is always encouraged.</p>
+            </div>
         </main>
     );
 }
