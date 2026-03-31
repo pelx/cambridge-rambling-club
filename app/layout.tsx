@@ -20,11 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Cambridge Rambling Club',
   description: 'Weekly walks around Cambridge and beyond',
-  icons: {
-    icon: '/favicon.svg',
-  },
 };
-
 
 export default function RootLayout({
   children,
