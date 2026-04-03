@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { getWalkById } from '../../../lib/walks';
 import { notFound } from 'next/navigation';
 import { use } from 'react';
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 const levelConfig = {
     A: { label: 'Level A — challenging', className: 'bg-red-50 text-red-800' },
@@ -57,6 +58,33 @@ export default function WalkDetailPage({ params }: { params: Promise<{ id: strin
                 <span className={`shrink-0 text-xs font-medium px-3 py-1.5 rounded-full mt-1 ${ level.className }`}>
                     {level.label}
                 </span>
+            </div>
+
+            {/* <AddToCalendarButton
+                name="Title"
+                options={[ 'Apple', 'Google' ]}
+                location="World Wide Web"
+                startDate="2026-02-24"
+                endDate="2026-02-24"
+                startTime="10:15"
+                endTime="23:30"
+                timeZone="EST"
+            ></AddToCalendarButton> */}
+
+            {/* Add to calendar */}
+            <div className="mb-6">
+                <AddToCalendarButton
+                    name={walk.title}
+                    startDate={walk.date}
+                    startTime={walk.startTime}
+                    endTime="16:00"
+                    timeZone="Europe/London"
+                    location={walk.walkStart || ''}
+                    description={walk.description}
+                    options={[ 'Google', 'Apple', 'iCal', 'Microsoft365', 'Outlook.com' ]}
+                    buttonStyle="round"
+                    lightMode="light"
+                />
             </div>
 
             {/* Stats grid */}

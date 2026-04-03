@@ -1,0 +1,31 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { Walk } from '../lib/walks';
+
+export default function AddToCalendar({ walk }: { walk: Walk }) {
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        import('add-to-calendar-button').then(() => {
+            if (ref.current) {
+                ref.current.innerHTML = `
+                    <add-to-calendar-button
+                        name="${ walk.title }"
+                        startDate="${ walk.date }"
+                        startTime="${ walk.startTime }"
+                        endTime="16:00"
+                        timeZone="Europe/London"
+                        location="${ walk.walkStart || '' }"
+                        description="${ walk.description || '' }"
+                        options="Google,Apple,iCal,Microsoft365,Outlook.com"
+                        buttonStyle="round"
+                        lightMode="light"
+                    ></add-to-calendar-button>
+                `;
+            }
+        });
+    }, [ walk ]);
+
+    return <div ref={ref} />;
+}
