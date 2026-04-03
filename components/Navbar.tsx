@@ -98,6 +98,10 @@ export default function Navbar() {
                         Newsletters
                     </Link>
 
+                    <Link href="/admin/walks" className={linkClass('/admin/walks')}>
+                        Admin
+                    </Link>
+
                     <Link
                         href="/join"
                         className={linkClass('/join')}
