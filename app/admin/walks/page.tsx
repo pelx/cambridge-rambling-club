@@ -13,8 +13,60 @@ function formatDate(d: string) {
     });
 }
 
+const sortByDateAndLevel = (a: Walk, b: Walk) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    if (dateA !== dateB) return dateA - dateB;
+    return a.level.localeCompare(b.level);
+};
+
+function WalkRow({ walk, onEdit, onDelete }: { walk: Walk; onEdit: () => void; onDelete: () => void }) {
+    return (
+        <div className="bg-white border border-stone-200 rounded-xl px-5 py-4 flex items-center justify-between gap-4">
+            <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-stone-900 truncate">{walk.title}</p>
+                <p className="text-xs text-stone-400 mt-0.5">
+                    {formatDate(walk.date)} · {walk.startTime} · Level {walk.level} · {walk.leader}
+                </p>
+            </div>
+            <div className="flex gap-2 flex-shrink-0">
+                <button
+                    onClick={onEdit}
+                    className="text-sm text-green-700 font-medium hover:text-green-900 transition-colors px-3 py-1.5"
+                >
+                    Edit
+                </button>
+                <button
+                    onClick={onDelete}
+                    className="text-sm text-red-600 font-medium hover:text-red-800 transition-colors px-3 py-1.5"
+                >
+                    Delete
+                </button>
+            </div>
+        </div>
+    );
+}
+
 export default function AdminWalksPage() {
     const [ editing, setEditing ] = useState<Walk | null | 'new'>(null);
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcoming = [ ...walks ]
+        .filter(w => new Date(w.date) >= today)
+        .sort(sortByDateAndLevel);
+
+    const past = [ ...walks ]
+        .filter(w => new Date(w.date) < today)
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    async function handleDelete(walk: Walk) {
+        if (confirm(`Delete "${ walk.title }"?`)) {
+            await deleteWalk(walk.id);
+            window.location.reload();
+        }
+    }
 
     if (editing !== null) {
         return (
@@ -48,46 +100,34 @@ export default function AdminWalksPage() {
                     </button>
                 </div>
 
-                <div className="flex flex-col gap-3">
-                    {[ ...walks ]
-                        .sort((a, b) => {
-                            const dateA = new Date(a.date).getTime();
-                            const dateB = new Date(b.date).getTime();
-                            if (dateA !== dateB) return dateA - dateB;
-                            return a.level.localeCompare(b.level);
-                        })
-                        .map(walk => (
-                            <div
-                                key={walk.id}
-                                className="bg-white border border-stone-200 rounded-xl px-5 py-4 flex items-center justify-between gap-4"
-                            >
-                                <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium text-stone-900 truncate">{walk.title}</p>
-                                    <p className="text-xs text-stone-400 mt-0.5">
-                                        {formatDate(walk.date)} · {walk.startTime} · Level {walk.level} · {walk.leader}
-                                    </p>
-                                </div>
-                                <div className="flex gap-2 flex-shrink-0">
-                                    <button
-                                        onClick={() => setEditing(walk)}
-                                        className="text-sm text-green-700 font-medium hover:text-green-900 transition-colors px-3 py-1.5"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={async () => {
-                                            if (confirm(`Delete "${ walk.title }"?`)) {
-                                                await deleteWalk(walk.id);
-                                                window.location.reload();
-                                            }
-                                        }}
-                                        className="text-sm text-red-600 font-medium hover:text-red-800 transition-colors px-3 py-1.5"
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
+                <h2 className="text-lg font-semibold text-stone-900 mb-3">Upcoming ({upcoming.length})</h2>
+                {upcoming.length === 0 && (
+                    <p className="text-stone-400 text-sm mb-6">No upcoming walks.</p>
+                )}
+                <div className="flex flex-col gap-3 mb-10">
+                    {upcoming.map(walk => (
+                        <WalkRow
+                            key={walk.id}
+                            walk={walk}
+                            onEdit={() => setEditing(walk)}
+                            onDelete={() => handleDelete(walk)}
+                        />
+                    ))}
+                </div>
+
+                <h2 className="text-lg font-semibold text-stone-900 mb-3">Past ({past.length})</h2>
+                {past.length === 0 && (
+                    <p className="text-stone-400 text-sm">No past walks.</p>
+                )}
+                <div className="flex flex-col gap-3 opacity-60">
+                    {past.map(walk => (
+                        <WalkRow
+                            key={walk.id}
+                            walk={walk}
+                            onEdit={() => setEditing(walk)}
+                            onDelete={() => handleDelete(walk)}
+                        />
+                    ))}
                 </div>
 
             </div>
