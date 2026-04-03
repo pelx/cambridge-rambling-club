@@ -23,6 +23,16 @@ function initialsOf(name: string) {
     return name.split(' ').map(n => n[ 0 ]).join('').toUpperCase().slice(0, 2);
 }
 
+function getCalendarOptions(): ('Apple' | 'Google' | 'iCal' | 'Microsoft365' | 'Outlook.com')[] {
+    if (typeof window === 'undefined') return [ 'Google', 'iCal' ];
+    const ua = navigator.userAgent;
+    if (/iPhone|iPad|iPod/.test(ua)) return [ 'Apple', 'Google' ];
+    if (/Macintosh/.test(ua)) return [ 'Apple', 'Google', 'iCal' ];
+    if (/Android/.test(ua)) return [ 'Google' ];
+    if (/Windows/.test(ua)) return [ 'Google', 'Microsoft365', 'Outlook.com' ];
+    return [ 'Google', 'Apple', 'iCal', 'Microsoft365', 'Outlook.com' ];
+}
+
 export default function WalkDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const router = useRouter();
     const { id } = use(params);
@@ -40,17 +50,14 @@ export default function WalkDetailPage({ params }: { params: Promise<{ id: strin
                 ← Back
             </button>
 
-            {/* Image */}
             <div className="relative w-full h-40 overflow-hidden">
                 {walk.image ? (
                     <Image src={walk.image} alt={walk.title} fill className="object-cover" />
                 ) : (
-                    // eslint-disable-next-line @next/next/no-img-element
                     <img src="/images/walk_placeholder.svg" alt="" className="w-full h-full object-cover" />
                 )}
             </div>
 
-            {/* Header */}
             <div className="flex items-start justify-between gap-4 mb-6">
                 <h1 className="font-serif text-3xl font-semibold text-stone-900 leading-snug">
                     {walk.title}
@@ -60,18 +67,6 @@ export default function WalkDetailPage({ params }: { params: Promise<{ id: strin
                 </span>
             </div>
 
-            {/* <AddToCalendarButton
-                name="Title"
-                options={[ 'Apple', 'Google' ]}
-                location="World Wide Web"
-                startDate="2026-02-24"
-                endDate="2026-02-24"
-                startTime="10:15"
-                endTime="23:30"
-                timeZone="EST"
-            ></AddToCalendarButton> */}
-
-            {/* Add to calendar */}
             <div className="mb-6">
                 <AddToCalendarButton
                     name={walk.title}
@@ -81,13 +76,12 @@ export default function WalkDetailPage({ params }: { params: Promise<{ id: strin
                     timeZone="Europe/London"
                     location={walk.walkStart || ''}
                     description={walk.description}
-                    options={[ 'Google', 'Apple', 'iCal', 'Microsoft365', 'Outlook.com' ]}
+                    options={getCalendarOptions()}
                     buttonStyle="round"
                     lightMode="light"
                 />
             </div>
 
-            {/* Stats grid */}
             <div className="grid grid-cols-2 gap-3 mb-6">
                 {[
                     { label: 'Date', value: formatDate(walk.date) },
@@ -100,7 +94,6 @@ export default function WalkDetailPage({ params }: { params: Promise<{ id: strin
                 ))}
             </div>
 
-            {/* Sections */}
             {[
                 { title: 'About this walk', content: walk.description },
                 { title: 'Walk start', content: walk.walkStart },
@@ -115,7 +108,6 @@ export default function WalkDetailPage({ params }: { params: Promise<{ id: strin
 
             <hr className="border-stone-200 my-6" />
 
-            {/* Leader */}
             <h2 className="text-xs uppercase tracking-wide text-stone-400 mb-3">Walk leader</h2>
             <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-sm font-medium text-green-900 flex-shrink-0">
