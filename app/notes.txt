@@ -1,0 +1,2 @@
+user groups: member can book a walk, walk coordinator or leader can create edit delete walks that she/he created, admin can create, edit or delete any walk.
+

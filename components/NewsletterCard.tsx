@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Newsletter } from '../lib/newsletters';
 
 type Props = {
@@ -11,9 +12,21 @@ export default function NewsletterCard({ newsletter }: Props) {
             rel="noopener noreferrer"
             className="block border border-stone-200 rounded-xl bg-white shadow-sm hover:shadow-md transition cursor-pointer overflow-hidden"
         >
-            <div className="w-full h-16 overflow-hidden">
-                <img src="/images/matisse_wildflowers.svg" alt="" className="w-full h-full object-cover" />
+
+            {/* Image */}
+            <div className="relative w-full h-16 overflow-hidden">
+                {newsletter.image ? (
+                    <Image
+                        src={newsletter.image}
+                        alt={newsletter.season + ' ' + newsletter.year}
+                        fill
+                        className="object-cover"
+                    />
+                ) : (
+                    <img src="/images/walk_placeholder.svg" alt="" className="w-full h-full object-cover" />
+                )}
             </div>
+
             <div className="p-5">
                 <h3 className="text-lg font-semibold mb-2">
                     {newsletter.season} {newsletter.year}

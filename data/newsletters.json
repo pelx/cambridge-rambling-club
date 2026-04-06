@@ -3,18 +3,21 @@
         "id": 3,
         "season": "Winter",
         "year": 2026,
-        "file": "/newsletters/winter-2026.pdf"
+        "file": "/newsletters/winter-2026.pdf",
+        "image": "/images/winter.svg"
     },
     {
         "id": 2,
         "season": "Autumn",
         "year": 2025,
-        "file": "/newsletters/autumn-2025.pdf"
+        "file": "/newsletters/autumn-2025.pdf",
+        "image": "/images/autumn.svg"
     },
     {
         "id": 1,
         "season": "Summer",
         "year": 2025,
-        "file": "/newsletters/summer-2025.pdf"
+        "file": "/newsletters/summer-2025.pdf",
+        "image": "/images/summer.svg"
     }
 ]

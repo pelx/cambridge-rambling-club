@@ -68,5 +68,19 @@
     "walkStart": "The Warren Car Park",
     "image": "/images/walk1.jpg",
     "id": 5
+  },
+  {
+    "title": "Sun A walk – Wicken Fen",
+    "date": "2026-04-12",
+    "startTime": "09:30",
+    "level": "B",
+    "leader": "Gavin Monk",
+    "phone": "07769882471",
+    "description": "The walk will go via Barway, returning via Soham. Refreshments: Please bring all refreshments for the day.",
+    "drivingInstructions": "",
+    "parking": "Wicken Fen NT Car Park, ode Lane, Wicken, Cambs. CB7 5XP.  (free to NT members, £3.50 otherwise).",
+    "walkStart": "Wicken Fen NT Car Park",
+    "image": "",
+    "id": 6
   }
 ]

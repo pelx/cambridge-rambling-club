@@ -5,6 +5,7 @@ export type Newsletter = {
   season: 'Winter' | 'Spring' | 'Summer' | 'Autumn';
   year: number;
   file: string;
+  image?: string;
 };
 
 // cast data
